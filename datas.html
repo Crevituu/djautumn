@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dj Autumn</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <!-- ===== CURSOR AMBIENTE ===== -->
+    <div class="cursor-glow" aria-hidden="true"></div>
+
+    <!-- ===== NAV ===== -->
+    <header class="site-header" id="siteHeader">
+      <div class="header-inner">
+        <a href="index.html" class="brand-mark">
+          <img src="img/dj-autumn-logo-2.png" alt="Dj Autumn" class="" />
+        </a>
+        <nav class="main-nav" id="mainNav">
+          <a href="index.html" class="nav-link">Início</a>
+
+          <a href="som.html" class="nav-link">O Som</a>
+          <a href="datas.html" class="nav-link active">Datas</a>
+          <a href="mixes.html" class="nav-link">Preview</a>
+          <a href="galeria.html" class="nav-link">Galeria</a>
+          <a
+            href="https://api.whatsapp.com/send/?phone=5548998318027"
+            class="btn btn-line"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Reservar</a
+          >
+        </nav>
+        <button class="nav-toggle" id="navToggle" aria-label="Abrir menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <section class="section dates" id="datas">
+        <div class="section-inner">
+          <span class="kicker reveal">Agenda</span>
+          <h2 class="section-title reveal">Próximas datas</h2>
+
+          <ul class="dates-list">
+            <li class="date-row reveal">
+              <span class="date-day">27 SET</span>
+              <span class="date-venue">Casa Baixa — Set ao pôr do sol</span>
+              <span class="date-city">Florianópolis, SC</span>
+              <a href="#contato" class="date-link">Detalhes →</a>
+            </li>
+            <li class="date-row reveal">
+              <span class="date-day">11 OUT</span>
+              <span class="date-venue"
+                >Vinyl & Vento — Noite de jazz house</span
+              >
+              <span class="date-city">Itajaí, SC</span>
+              <a href="#contato" class="date-link">Detalhes →</a>
+            </li>
+            <li class="date-row reveal">
+              <span class="date-day">08 NOV</span>
+              <span class="date-venue">Terraço Âmbar — Sessão intimista</span>
+              <span class="date-city">Curitiba, PR</span>
+              <a href="#contato" class="date-link">Detalhes →</a>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <a href="index.html" class="brand-mark">
+          <img src="img/dj-autumn-logo-2.png" alt="Dj Autumn" class="" />
+        </a>
+        <p class="footer-copy">
+          <span id="year"></span> © Todos os direitos reservados.
+        </p>
+      </div>
+    </footer>
+
+    <!-- ===== WIDGET FIXO: disco / vídeo em loop ===== -->
+    <div class="vinyl-widget" id="vinylWidget">
+      <div class="vinyl-ring"></div>
+      <div
+        class="vinyl-video-mask"
+        id="vinylToggle"
+        role="button"
+        tabindex="0"
+        aria-label="Pausar ou tocar prévia"
+      >
+        <video
+          class="vinyl-video"
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="metadata"
+          poster=""
+        >
+          <source src="img/hero-loop.mp4" type="video/mp4" />
+        </video>
+        <div class="vinyl-label">
+          <span>DJ</span>
+          <span>AUTUMN</span>
+        </div>
+      </div>
+      <div class="tonearm"></div>
+      <span class="vinyl-widget-tag">now playing</span>
+    </div>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>

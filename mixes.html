@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dj Autumn</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body class="is-mixes">
+    <!-- ===== CURSOR AMBIENTE ===== -->
+    <div class="cursor-glow" aria-hidden="true"></div>
+
+    <!-- ===== NAV ===== -->
+    <header class="site-header" id="siteHeader">
+      <div class="header-inner">
+        <a href="index.html" class="brand-mark">
+          <img src="img/dj-autumn-logo-2.png" alt="Dj Autumn" class="" />
+        </a>
+        <nav class="main-nav" id="mainNav">
+          <a href="index.html" class="nav-link">Início</a>
+
+          <a href="som.html" class="nav-link">O Som</a>
+          <a href="datas.html" class="nav-link">Datas</a>
+          <a href="mixes.html" class="nav-link active">Preview</a>
+          <a href="galeria.html" class="nav-link">Galeria</a>
+          <a
+            href="https://api.whatsapp.com/send/?phone=5548998318027"
+            class="btn btn-line"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Reservar</a
+          >
+        </nav>
+        <button class="nav-toggle" id="navToggle" aria-label="Abrir menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </header>
+
+    <!-- ===== HERO ===== -->
+    <main>
+      <section class="hero-preview" id="top">
+        <!-- vídeo de fundo -->
+        <video
+          class="hero-bg-video"
+          autoplay
+          muted
+          loop
+          playsinline
+          poster="img/dj-photo.png"
+        >
+          <source src="video/hero-bg.mp4" type="video/mp4" />
+        </video>
+        <div class="hero-overlay" aria-hidden="true"></div>
+      </section>
+
+      <section class="section mixes" id="mixes">
+        <svg
+          class="deco deco-branch deco-branch--mixes"
+          data-speed="0.12"
+          viewBox="0 0 260 380"
+          aria-hidden="true"
+        >
+          <path d="M230 10 C210 90 200 170 150 230 C110 280 60 300 20 360" />
+          <path d="M150 230 C130 200 100 190 70 200" />
+          <path d="M180 175 C200 155 225 155 245 168" />
+          <ellipse
+            cx="55"
+            cy="255"
+            rx="16"
+            ry="7"
+            transform="rotate(-30 55 255)"
+          />
+          <ellipse
+            cx="235"
+            cy="160"
+            rx="15"
+            ry="6"
+            transform="rotate(25 235 160)"
+          />
+        </svg>
+
+        <div class="section-inner">
+          <span class="kicker reveal">Ouça</span>
+          <h2 class="section-title reveal">Sessões gravadas</h2>
+
+          <div class="mix-grid">
+            <article class="mix-card reveal">
+              <div class="mix-disc"><span></span></div>
+              <div class="mix-info">
+                <h3>Autumn Sessions Vol. 1</h3>
+                <p>Jazz house · 62 min</p>
+              </div>
+              <button class="mix-play" type="button" aria-label="Tocar">
+                ▶
+              </button>
+            </article>
+            <article class="mix-card reveal">
+              <div class="mix-disc"><span></span></div>
+              <div class="mix-info">
+                <h3>Late Bloom</h3>
+                <p>Deep &amp; nu jazz · 48 min</p>
+              </div>
+              <button class="mix-play" type="button" aria-label="Tocar">
+                ▶
+              </button>
+            </article>
+            <article class="mix-card reveal">
+              <div class="mix-disc"><span></span></div>
+              <div class="mix-info">
+                <h3>Fallen Leaves EP</h3>
+                <p>Broken beat · 55 min</p>
+              </div>
+              <button class="mix-play" type="button" aria-label="Tocar">
+                ▶
+              </button>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <a href="index.html" class="brand-mark">
+          <img src="img/dj-autumn-logo-2.png" alt="Dj Autumn" class="" />
+        </a>
+        <p class="footer-copy">
+          <span id="year"></span> © Todos os direitos reservados.
+        </p>
+      </div>
+    </footer>
+
+    <!-- ===== WIDGET FIXO: disco / vídeo em loop ===== -->
+    <div class="vinyl-widget" id="vinylWidget">
+      <div class="vinyl-ring"></div>
+      <div
+        class="vinyl-video-mask"
+        id="vinylToggle"
+        role="button"
+        tabindex="0"
+        aria-label="Pausar ou tocar prévia"
+      >
+        <video
+          class="vinyl-video"
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="metadata"
+          poster=""
+        >
+          <source src="img/hero-loop.mp4" type="video/mp4" />
+        </video>
+        <div class="vinyl-label">
+          <span>DJ</span>
+          <span>AUTUMN</span>
+        </div>
+      </div>
+      <div class="tonearm"></div>
+      <span class="vinyl-widget-tag">now playing</span>
+    </div>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>
