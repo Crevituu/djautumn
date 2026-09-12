@@ -1372,7 +1372,7 @@ button.gallery-item:focus-visible::after {
     right: 0;
     height: 100svh;
     width: min(78vw, 320px);
-    background: var(--cream);
+    background: #a25a3b;
     flex-direction: column;
     justify-content: center;
     gap: 28px;
