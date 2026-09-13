@@ -142,18 +142,47 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  /* ---------- galeria: lightbox ao clicar em uma foto ---------- */
+  /* ---------- galeria: lightbox unificado, com navegação entre fotos ---------- */
   const lightbox = document.getElementById("lightbox");
   const lightboxImg = document.getElementById("lightboxImg");
   const lightboxCaption = document.getElementById("lightboxCaption");
   const lightboxClose = document.getElementById("lightboxClose");
-  const galleryButtons = document.querySelectorAll(".gallery-item[data-full]");
+  const lightboxPrev = document.getElementById("lightboxPrev");
+  const lightboxNext = document.getElementById("lightboxNext");
+  const lightboxCounter = document.getElementById("lightboxCounter");
 
-  const openLightbox = (src, caption) => {
-    if (!lightbox || !lightboxImg) return;
-    lightboxImg.src = src;
-    lightboxImg.alt = caption || "";
-    lightboxCaption.textContent = caption || "";
+  // todas as fotos da galeria, na ordem em que aparecem na página,
+  // para que "próxima/anterior" percorra a galeria inteira como um carrossel único
+  const galleryItems = Array.from(
+    document.querySelectorAll(".gallery-item[data-full]"),
+  );
+
+  let currentIndex = -1;
+
+  const renderSlide = (index) => {
+    if (!lightbox || !lightboxImg || galleryItems.length === 0) return;
+
+    // "dá a volta" nas pontas: da última foto vai para a primeira e vice-versa
+    currentIndex = (index + galleryItems.length) % galleryItems.length;
+    const item = galleryItems[currentIndex];
+
+    lightboxImg.src = item.dataset.full;
+    lightboxImg.alt = item.dataset.caption || "";
+    if (lightboxCaption)
+      lightboxCaption.textContent = item.dataset.caption || "";
+    if (lightboxCounter) {
+      lightboxCounter.textContent = `${currentIndex + 1} / ${galleryItems.length}`;
+    }
+
+    // esconde as setas quando só há uma foto na galeria
+    const hasMultiple = galleryItems.length > 1;
+    if (lightboxPrev) lightboxPrev.hidden = !hasMultiple;
+    if (lightboxNext) lightboxNext.hidden = !hasMultiple;
+  };
+
+  const openLightbox = (index) => {
+    if (!lightbox) return;
+    renderSlide(index);
     lightbox.classList.add("is-open");
     lightbox.setAttribute("aria-hidden", "false");
     document.body.style.overflow = "hidden";
@@ -166,26 +195,65 @@ document.addEventListener("DOMContentLoaded", () => {
     document.body.style.overflow = "";
   };
 
-  galleryButtons.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      openLightbox(btn.dataset.full, btn.dataset.caption);
-    });
+  const showPrev = () => renderSlide(currentIndex - 1);
+  const showNext = () => renderSlide(currentIndex + 1);
+
+  galleryItems.forEach((btn, index) => {
+    btn.addEventListener("click", () => openLightbox(index));
   });
 
   if (lightboxClose) lightboxClose.addEventListener("click", closeLightbox);
+  if (lightboxPrev) {
+    lightboxPrev.addEventListener("click", (e) => {
+      e.stopPropagation();
+      showPrev();
+    });
+  }
+  if (lightboxNext) {
+    lightboxNext.addEventListener("click", (e) => {
+      e.stopPropagation();
+      showNext();
+    });
+  }
+
   if (lightbox) {
+    // clicar no fundo escuro fecha; clicar na própria foto não deve fechar
     lightbox.addEventListener("click", (e) => {
       if (e.target === lightbox) closeLightbox();
     });
   }
+
   window.addEventListener("keydown", (e) => {
-    if (
-      e.key === "Escape" &&
-      lightbox &&
-      lightbox.classList.contains("is-open")
-    )
-      closeLightbox();
+    if (!lightbox || !lightbox.classList.contains("is-open")) return;
+    if (e.key === "Escape") closeLightbox();
+    if (e.key === "ArrowLeft") showPrev();
+    if (e.key === "ArrowRight") showNext();
   });
+
+  // suporte a swipe (arrastar o dedo) em telas de toque
+  if (lightboxImg) {
+    let touchStartX = null;
+    lightboxImg.addEventListener(
+      "touchstart",
+      (e) => {
+        touchStartX = e.changedTouches[0].clientX;
+      },
+      { passive: true },
+    );
+    lightboxImg.addEventListener(
+      "touchend",
+      (e) => {
+        if (touchStartX === null) return;
+        const deltaX = e.changedTouches[0].clientX - touchStartX;
+        if (Math.abs(deltaX) > 40) {
+          if (deltaX > 0) showPrev();
+          else showNext();
+        }
+        touchStartX = null;
+      },
+      { passive: true },
+    );
+  }
 
   /* ---------- formulário de contato (feedback local, sem backend) ---------- */
   const form = document.getElementById("contactForm");
@@ -194,7 +262,7 @@ document.addEventListener("DOMContentLoaded", () => {
     form.addEventListener("submit", (e) => {
       e.preventDefault();
       note.textContent =
-        "Mensagem pronta para envio — conecte este formulário ao seu backend/e-mail preferido.";
+        "Mensagem pronta para envio - conecte este formulário ao seu backend/e-mail preferido.";
       form.reset();
     });
   }
