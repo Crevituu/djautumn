@@ -1365,18 +1365,13 @@ button.gallery-item:focus-visible::after {
     top: 14px;
     right: 14px;
   }
-.nav-toggle[aria-expanded="true"] span {
+
+  .nav-toggle[aria-expanded="true"] span {
     background-color: #ffffff;
   }
   .main-nav a {
     color: #ffffff;
   }
-  
-   .btn-line {
-    color: #ffffff;
-    border-color: #ffffff;
-  }
-   
   .main-nav {
     position: fixed;
     inset: 0 0 auto auto;
@@ -1393,6 +1388,11 @@ button.gallery-item:focus-visible::after {
     transition: transform 0.5s var(--ease);
     box-shadow: -20px 0 40px rgba(0, 0, 0, 0.12);
   }
+
+  .btn-line {
+    color: #ffffff;
+    border-color: #ffffff;
+  }
   .main-nav.open {
     transform: translateX(0);
   }
@@ -1402,8 +1402,12 @@ button.gallery-item:focus-visible::after {
   .mix-card {
     grid-template-columns: auto 1fr;
   }
+  .mix-disc {
+    display: none;
+  }
   .mix-play {
-    grid-column: 2;
+    grid-column: 1;
+    grid-row: 1;
     justify-self: start;
   }
 }
