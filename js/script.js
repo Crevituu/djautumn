@@ -1,5 +1,5 @@
 /* =========================================================
-   DJ AUTUMN — interações
+   DJ AUTUMN - interações
    ========================================================= */
 document.addEventListener("DOMContentLoaded", () => {
   const header = document.getElementById("siteHeader");
