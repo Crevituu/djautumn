@@ -1365,7 +1365,9 @@ button.gallery-item:focus-visible::after {
     top: 14px;
     right: 14px;
   }
-
+.nav-toggle[aria-expanded="true"] span {
+    background-color: #ffffff;
+  }
   .main-nav a {
     color: #ffffff;
   }
