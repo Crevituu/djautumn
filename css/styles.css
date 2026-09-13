@@ -1065,6 +1065,7 @@ button.gallery-item:focus-visible::after {
   object-fit: contain;
   border-radius: 12px;
   display: block;
+  user-select: none;
 }
 .lightbox-caption {
   margin-top: 14px;
@@ -1093,6 +1094,67 @@ button.gallery-item:focus-visible::after {
 .lightbox-close:hover {
   background: rgba(248, 241, 231, 0.12);
   transform: rotate(90deg);
+}
+
+/* --- navegação entre fotos dentro do lightbox --- */
+.lightbox-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 1px solid rgba(248, 241, 231, 0.4);
+  background: rgba(26, 14, 5, 0.35);
+  color: var(--cream);
+  font-size: 1.4rem;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition:
+    background 0.3s var(--ease),
+    transform 0.3s var(--ease),
+    border-color 0.3s var(--ease);
+}
+.lightbox-nav:hover {
+  background: var(--rust);
+  border-color: var(--rust);
+  transform: translateY(-50%) scale(1.06);
+}
+.lightbox-nav:active {
+  transform: translateY(-50%) scale(0.96);
+}
+.lightbox-prev {
+  left: 18px;
+}
+.lightbox-next {
+  right: 18px;
+}
+.lightbox-counter {
+  position: absolute;
+  left: 50%;
+  bottom: 18px;
+  transform: translateX(-50%);
+  color: rgba(248, 241, 231, 0.75);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 640px) {
+  .lightbox-nav {
+    width: 42px;
+    height: 42px;
+    font-size: 1.15rem;
+  }
+  .lightbox-prev {
+    left: 8px;
+  }
+  .lightbox-next {
+    right: 8px;
+  }
 }
 
 /* ---------- Contato ---------- */
