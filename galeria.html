@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dj Autumn</title>
     <link rel="stylesheet" href="css/styles.css" />
+
     <!-- Favicon -->
-  <link rel="icon" type="image/png" href="img/dj-autumn-fav.png" />
+    <link rel="icon" type="image/png" href="img/dj-autumn-fav.png" />
   </head>
   <body>
     <!-- ===== CURSOR AMBIENTE ===== -->
@@ -233,11 +234,26 @@
       </section>
 
       <div class="lightbox" id="lightbox">
+        <button
+          class="lightbox-nav lightbox-prev"
+          id="lightboxPrev"
+          aria-label="Foto anterior"
+        >
+          &#8249;
+        </button>
         <button class="lightbox-close" id="lightboxClose">&times;</button>
+        <button
+          class="lightbox-nav lightbox-next"
+          id="lightboxNext"
+          aria-label="Próxima foto"
+        >
+          &#8250;
+        </button>
         <div style="text-align: center">
           <img class="lightbox-img" id="lightboxImg" src="" alt="" />
           <p id="lightboxCaption" style="color: #fff; margin-top: 10px"></p>
         </div>
+        <span class="lightbox-counter" id="lightboxCounter"></span>
       </div>
     </main>
 
