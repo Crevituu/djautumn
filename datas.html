@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Datas | Dj Autumn</title>
+    <meta name="description" content="Agenda de apresentações da DJ Autumn. Reserve uma data pelo WhatsApp." />
+
+    <!-- Fonte Montserrat (Google Fonts) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Aumente o número de ?v= sempre que alterar o CSS/JS (evita cache antigo) -->
+    <link rel="stylesheet" href="css/styles.css?v=2" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="img/dj-autumn-fav.png" />
+  </head>
+  <body class="is-dates">
+    <!-- ===== CURSOR AMBIENTE ===== -->
+    <div class="cursor-glow" aria-hidden="true"></div>
+
+    <!-- ===== NAV ===== -->
+    <header class="site-header" id="siteHeader">
+      <div class="header-inner">
+        <a href="index.html" class="brand-mark">
+          <img src="img/dj-autumn-logo-2.png" alt="Dj Autumn" />
+        </a>
+        <nav class="main-nav" id="mainNav">
+          <a href="index.html" class="nav-link">Início</a>
+          <a href="som.html" class="nav-link">O Som</a>
+          <a href="datas.html" class="nav-link active" aria-current="page">Datas</a>
+          <a href="mixes.html" class="nav-link">Preview</a>
+          <a href="galeria.html" class="nav-link">Galeria</a>
+          <a
+            href="https://api.whatsapp.com/send/?phone=5548998318027"
+            class="btn btn-line"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Fale Comigo!</a
+          >
+        </nav>
+        <button
+          class="nav-toggle"
+          id="navToggle"
+          aria-label="Abrir menu"
+          aria-expanded="false"
+        >
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <section class="section dates" id="datas">
+        <svg
+          class="deco deco-branch deco-branch--mixes"
+          data-speed="0.12"
+          viewBox="0 0 260 380"
+          aria-hidden="true"
+        >
+          <path d="M230 10 C210 90 200 170 150 230 C110 280 60 300 20 360" />
+          <path d="M150 230 C130 200 100 190 70 200" />
+          <path d="M180 175 C200 155 225 155 245 168" />
+          <ellipse cx="55" cy="255" rx="16" ry="7" transform="rotate(-30 55 255)" />
+          <ellipse cx="235" cy="160" rx="15" ry="6" transform="rotate(25 235 160)" />
+        </svg>
+
+        <svg
+          class="deco deco-branch deco-branch--about"
+          data-speed="0.1"
+          viewBox="0 0 200 300"
+          aria-hidden="true"
+        >
+          <path d="M10 10 C40 60 60 100 60 160 C60 220 40 260 70 290" />
+          <path d="M60 160 C90 150 110 130 120 100" />
+          <path d="M60 190 C30 190 15 210 10 240" />
+          <ellipse cx="118" cy="95" rx="14" ry="6" transform="rotate(-20 118 95)" />
+          <ellipse cx="14" cy="245" rx="13" ry="6" transform="rotate(15 14 245)" />
+        </svg>
+
+        <div class="section-inner">
+          <span class="kicker reveal">Agenda</span>
+          <h2 class="section-title reveal">Próximas datas</h2>
+
+          <ul class="dates-list">
+            <li class="date-row reveal">
+              <span class="date-day">EM BREVE</span>
+              <span class="date-venue">Agenda sendo atualizada</span>
+              <span class="date-city">Florianópolis, SC</span>
+              <a
+                href="https://api.whatsapp.com/send/?phone=5548998318027"
+                class="date-link"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Detalhes →</a
+              >
+            </li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <a href="index.html" class="brand-mark">
+          <img src="img/dj-autumn-logo-2.png" alt="Dj Autumn" />
+        </a>
+        <p class="footer-copy">
+          <span id="year"></span> © Todos os direitos reservados.
+        </p>
+      </div>
+    </footer>
+
+    <!-- ===== WIDGET FIXO: disco / vídeo em loop ===== -->
+    <div class="vinyl-widget" id="vinylWidget">
+      <div class="vinyl-ring"></div>
+      <div
+        class="vinyl-video-mask"
+        id="vinylToggle"
+        role="button"
+        tabindex="0"
+        aria-label="Pausar ou tocar o vídeo"
+        aria-pressed="true"
+      >
+        <video
+          class="vinyl-video"
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="metadata"
+        >
+          <source src="img/hero-loop.mp4" type="video/mp4" />
+        </video>
+        <div class="vinyl-label">
+          <span>DJ</span>
+          <span>AUTUMN</span>
+        </div>
+      </div>
+      <div class="tonearm"></div>
+      <span class="vinyl-widget-tag" id="vinylTag">now playing</span>
+    </div>
+
+    <script src="js/script.js?v=2"></script>
+  </body>
+</html>
