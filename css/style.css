@@ -686,13 +686,7 @@ body.menu-open .header {
 }
 html[data-theme="dia"] .hero__bg-overlay {
   background:
-    radial-gradient(
-      ellipse at center,
-      rgba(247, 240, 229, 0) 30%,
-      rgba(247, 240, 229, 0.55) 70%,
-      rgba(247, 240, 229, 0.95) 100%
-    ),
-    rgba(247, 240, 229, 0.75);
+    radial-gradient(ellipse at center, rgb(8 5 3 / 0%) 30%, rgb(8 5 3 / 42%) 70%, rgb(8 5 3) 100%), rgb(15 10 7 / 55%);
 }
 
 /* Orbs globais espalhados no background fixo */
