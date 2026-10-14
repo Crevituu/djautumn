@@ -1498,7 +1498,7 @@ html[data-theme="dia"] .hero__orb {
 @media (max-width: 899px) {
   .gallery__pin {
     min-height: auto;
-    padding-block: 90px;
+    padding-block: 5px;
   }
   .gallery__track {
     width: auto;
